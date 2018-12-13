@@ -14,7 +14,6 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
-apply plugin: 'org.springframework.boot'
 
 group = 'com.example'
 version = '0.0.1'
@@ -25,12 +24,14 @@ repositories {
 	maven { url "https://repo.spring.io/milestone" }
 }
 
-ext['springCloudVersion'] = 'Greenwich.M3'
+ext['springCloudVersion'] = 'Greenwich.RC1'
 
 dependencies {
-	implementation('org.springframework.cloud:spring-cloud-stream')
+	compile('org.springframework.boot:spring-boot-starter')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-actuator')
 	implementation('org.springframework.cloud:spring-cloud-stream-binder-kafka')
-	implementation('org.springframework.kafka:spring-kafka')
+
 	compileOnly('org.projectlombok:lombok')
 	testImplementation('org.springframework.boot:spring-boot-starter-test')
 	testImplementation('org.springframework.cloud:spring-cloud-stream-test-support')
