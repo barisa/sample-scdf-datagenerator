@@ -1,3 +1,2 @@
 spring.cloud.stream.bindings.output:
-  destination: default-random-data
   contentType: application/json
